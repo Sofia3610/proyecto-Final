@@ -1,0 +1,403 @@
+Descripcion base de datos Enfermedades_cardiacas
+
+Total de registros: 920 pacientes
+Origen: Múltiples hospitales (Cleveland, Hungary, Switzerland, VA Long Beach)
+Propósito: Diagnóstico y clasificación de enfermedades cardíacas
+
+ Descripción Detallada de Variables e Índices
+Variables de Identificación
+1. id
+
+Tipo: Numérico entero (identificador)
+Rango: 1 a 920
+Significado: Número único asignado a cada paciente
+Importancia: Identificación única del registro
+
+
+2. age (Edad)
+Tipo: Numérico continuo
+Rango: 28 a 77 años
+Significado: Edad del paciente en años
+Importancia:
+Factor de riesgo cardiovascular principal
+Riesgo aumenta exponencialmente después de los 45-50 años
+Ayuda a contextualizar otros síntomas
+
+
+3. sex (Sexo)
+Tipo: Categórico binario
+Valores posibles:
+
+Male (Masculino)
+Female (Femenino)
+
+Significado: Sexo biológico del paciente
+Importancia:
+
+Los hombres tienen mayor riesgo de enfermedad cardíaca temprana
+Las mujeres están protegidas hasta la menopausia
+Síntomas pueden presentarse diferente según sexo
+
+
+Ejemplo: sex=Male indica paciente masculino
+
+
+4. dataset
+Tipo: Categórico nominal
+Significado: Hospital/centro médico de origen de los datos
+
+Cleveland (Estados Unidos)
+Hungary (Hungría)
+Switzerland (Suiza)
+VA Long Beach (Veterans Affairs, California)
+
+Permite análisis por institución
+Diferentes protocolos médicos según país
+Variabilidad en equipamiento diagnóstico
+
+
+Ejemplo: dataset=Cleveland indica datos del Hospital Cleveland
+
+
+5. cp (Chest Pain - Tipo de Dolor Torácico)
+Tipo: Categórico ordinal
+Valores posibles:
+
+typical angina (angina típica)
+atypical angina (angina atípica)
+non-anginal (dolor no anginoso)
+asymptomatic (asintomático)
+
+Significado: Clasificación del tipo de dolor en el pecho
+Importancia: Principal síntoma de problemas cardíacos
+Interpretación clínica:
+
+Typical angina: Dolor opresivo en pecho, relacionado con esfuerzo, alivia con reposo
+Atypical angina: Solo cumple 2 de 3 características de angina típica
+Non-anginal: Dolor torácico no relacionado con el corazón
+Asymptomatic: Sin dolor torácico
+
+
+
+6. trestbps (Resting Blood Pressure - Presión Arterial en Reposo)
+Tipo: Numérico continuo
+Rango: 0 a 200 mmHg (milímetros de mercurio)
+Significado: Presión arterial sistólica medida en reposo
+Clasificación:
+
+< 120 mmHg: Normal
+120-129 mmHg: Elevada
+130-139 mmHg: Hipertensión etapa 1
+≥ 140 mmHg: Hipertensión etapa 2
+≥ 180 mmHg: Crisis hipertensiva
+
+
+Importancia:
+Factor de riesgo cardiovascular modificable
+Hipertensión daña arterias y corazón
+Predictor de infarto y accidente cerebrovascular
+
+
+Nota: Valores "0" indican datos faltantes
+
+7. chol (Serum Cholesterol - Colesterol Sérico)
+Tipo: Numérico continuo
+Rango: 0 a 603 mg/dl (miligramos por decilitro)
+Significado: Nivel de colesterol total en sangre
+Clasificación:
+
+< 200 mg/dl: Deseable
+200-239 mg/dl: Límite alto
+≥ 240 mg/dl: Alto
+
+Importancia:
+
+Colesterol alto causa aterosclerosis (placas en arterias)
+Factor de riesgo para enfermedad coronaria
+Modificable con dieta y medicamentos
+
+
+Nota: Valores "0" indican datos faltantes
+
+8. fbs (Fasting Blood Sugar - Glucosa en Ayunas)
+
+Tipo: Booleano (TRUE/FALSE)
+Valores posibles:
+
+TRUE: Glucosa en ayunas > 120 mg/dl
+FALSE: Glucosa en ayunas ≤ 120 mg/dl
+
+
+Significado: Indica si hay hiperglucemia (azúcar alta)
+Importancia:
+
+Indicador de diabetes o pre-diabetes
+Diabetes es factor de riesgo cardiovascular importante
+Pacientes diabéticos tienen peor pronóstico cardíaco
+
+
+Referencia: Normal < 100 mg/dl; Pre-diabetes 100-125 mg/dl; Diabetes ≥ 126 mg/dl
+
+
+ Variables de Electrocardiograma
+9. restecg (Resting Electrocardiographic Results)- Resultados del electrocardiograma en reposo
+
+Tipo: Categórico ordinal
+Valores posibles:
+
+normal (ECG normal)
+st-t abnormality (anomalías en onda ST-T)
+lv hypertrophy (hipertrofia ventricular izquierda)
+
+
+Significado: Resultados del electrocardiograma en reposo
+Importancia: MUY IMPORTANTE para detección de patologías
+Interpretación clinica:
+
+Normal: Sin alteraciones eléctricas
+ST-T abnormality: Posible isquemia (falta de oxígeno al corazón), puede indicar infarto previo o angina
+LV hypertrophy: Engrosamiento del ventrículo izquierdo, asociado con hipertensión crónica
+
+
+
+10. thalch (Maximum Heart Rate Achieved - Frecuencia Cardíaca Máxima)
+
+Tipo: Numérico continuo
+Rango: 60 a 202 latidos por minuto (bpm)
+Significado: Frecuencia cardíaca máxima alcanzada durante prueba de esfuerzo
+Cálculo estimado: FC máxima = 220 - edad
+Importancia:
+
+Indica capacidad cardiovascular
+FC máxima baja puede indicar problema cardíaco
+Se evalúa durante pruebas de estrés cardíaco
+
+
+Interpretación:
+
+FC máxima esperada a los 50 años: ~170 bpm
+Si alcanza solo 120 bpm: capacidad reducida (mal pronóstico)
+
+
+11. exang (Exercise Induced Angina - Angina Inducida por Ejercicio)
+
+Tipo: Booleano (TRUE/FALSE)
+Valores posibles:
+
+TRUE: Sí presenta angina con ejercicio
+FALSE: No presenta angina con ejercicio
+
+
+Significado: Si el paciente experimenta dolor torácico durante ejercicio
+Importancia:  Indicador de isquemia inducida por esfuerzo
+Interpretación clinica
+
+TRUE: Las arterias coronarias no suministran suficiente oxígeno durante esfuerzo
+Fuerte predictor de enfermedad coronaria significativa
+
+
+12. oldpeak (ST Depression - Depresión del Segmento ST)
+
+Tipo: Numérico continuo
+Rango: -2.6 a 6.2
+Significado: Depresión del segmento ST inducida por ejercicio relativa al reposo
+Importancia: MUY IMPORTANTE - Medida de isquemia
+Interpretación:
+
+0: Sin cambios (normal)
+0.5-1.0: Leve isquemia
+1.0-2.0: Isquemia moderada
+> 2.0: Isquemia severa
+Valores negativos: Elevación del ST (puede indicar infarto agudo)
+
+
+13. slope (Slope of Peak Exercise ST Segment - Pendiente del ST)-Pendiente del segmento ST del ejercicio máximo
+
+Tipo: Categórico ordinal
+Valores posibles:
+
+upsloping (pendiente ascendente)
+flat (pendiente plana)
+downsloping (pendiente descendente)
+
+
+Significado: Forma de la pendiente del segmento ST durante ejercicio máximo
+Importancia: Predictor de severidad de enfermedad coronaria
+Interpretación clínica:
+
+Upsloping: MEJOR pronóstico, más normal
+Flat: Pronóstico intermedio, preocupante
+Downsloping: PEOR pronóstico, indica isquemia severa
+
+
+Variables Especializadas
+14. ca (Number of Major Vessels - Número de Vasos Principales)
+
+Tipo: Numérico discreto
+Rango: 0 a 3
+Significado: Número de vasos coronarios principales (de 3 posibles) con estenosis (estrechamiento) detectado por fluoroscopia
+Vasos evaluados:
+
+Importancia:  Indica severidad de enfermedad coronaria
+Interpretación:
+
+0: Sin obstrucciones (mejor pronóstico)
+1: Un vaso afectado (enfermedad leve-moderada)
+2: Dos vasos afectados (enfermedad moderada-severa)
+3: Tres vasos afectados (enfermedad severa, alto riesgo)
+
+
+15. thal (Thalassemia/Thallium Stress Test - Prueba de Esfuerzo con Talio)
+
+Tipo: Categórico ordinal
+Valores posibles:
+
+normal (flujo sanguíneo normal)
+fixed defect (defecto fijo/permanente)
+reversable defect (defecto reversible)
+
+
+Importancia:  Evalúa flujo sanguíneo al músculo cardíaco
+Interpretación clínica:
+
+Normal: Perfusión adecuada en reposo y ejercicio
+Fixed defect: Tejido cicatricial (infarto previo), daño permanente
+Reversable defect: Isquemia (falta oxígeno durante esfuerzo, pero no hay daño permanente)
+
+
+Procedimiento: Se inyecta talio radioactivo y se toman imágenes del corazón
+
+
+16. num
+VARIABLE OBJETIVO -  para el diagnostico
+
+Tipo: Numérico discreto (ordinal)
+Rango: 0 a 4
+Significado: Presencia y grado de severidad de enfermedad cardíaca
+Valores:
+
+0: Sin enfermedad cardíaca (sano)
+1: Enfermedad cardíaca leve
+2: Enfermedad cardíaca moderada
+3: Enfermedad cardíaca severa
+4: Enfermedad cardíaca muy severa
+
+
+Importancia:  Es la variable que se busca predecir
+Uso común: Muchos estudios simplifican a clasificación binaria:
+
+0: Sin enfermedad
+1-4: Con enfermedad (cualquier grado)
+
+
+Descripcion base de datos Seguros_Medicos
+Total de registros: 1,339 personas aseguradas
+Período: Datos de seguros médicos en Estados Unidos
+Propósito: Predicción de costos de seguros médicos basados en factores demográficos y de salud
+
+1. age (Edad)
+
+Tipo: Numérico continuo
+Rango: 18 a 64 años
+Significado: Edad del titular del seguro médico
+Importancia:
+
+Factor clave en la determinación de primas
+A mayor edad, generalmente mayor riesgo de enfermedades crónicas
+Las personas mayores tienden a tener costos médicos más altos
+
+2. sex (Sexo)
+
+Tipo: Categórico binario
+Valores posibles:
+
+male (masculino)
+female (femenino)
+
+
+Significado: Sexo biológico del asegurado
+Importancia:
+
+
+3. bmi (Body Mass Index - Índice de Masa Corporal)
+
+Tipo: Numérico continuo
+Rango: 15.96 a 53.13 kg/m²
+Significado: Medida de la grasa corporal basada en altura y peso
+Clasificación estándar:
+
+< 18.5: Bajo peso
+18.5 - 24.9: Peso normal
+25.0 - 29.9: Sobrepeso
+30.0 - 34.9: Obesidad clase I
+35.0 - 39.9: Obesidad clase II
+≥ 40.0: Obesidad clase III (mórbida)
+
+
+Importancia:
+
+Indicador principal de riesgo cardiovascular
+asociado con diabetes, hipertensión, problemas cardíacos
+Factor significativo en el cálculo de primas
+
+
+4. children (Número de Hijos)
+
+Tipo: Numérico discreto (entero)
+Rango: 0 a 5 dependientes
+Significado: Número de hijos / dependientes cubiertos por la póliza
+
+Importancia:
+
+Afecta directamente el costo total del seguro
+Más dependientes = mayor cobertura necesaria
+
+
+5. smoker (Fumador)
+
+Tipo: Categórico binario
+Valores posibles:
+
+yes (sí, es fumador)
+no (no es fumador)
+
+
+Significado: Indica si la persona consume tabaco regularmente
+Importancia:
+
+Variable  para determinar costos
+Fumadores tienen costos médicos 2-3 veces mayores
+Asociado con: cáncer, enfermedades cardiovasculares, EPOC, etc.
+Las aseguradoras penalizan significativamente este factor
+
+
+
+6. region (Región Geográfica)
+
+Tipo: Categórico nominal
+Valores posibles:
+
+northeast (noreste)
+northwest (noroeste)
+southeast (sureste)
+southwest (suroeste)
+
+
+Significado: Región geográfica de residencia en Estados Unidos
+Importancia:
+
+Los costos médicos varían por región (hospitales, salarios médicos)
+Diferentes regulaciones estatales de seguros
+Variación en costo de vida y acceso a servicios
+
+
+7. charges (Costos/Cargos)
+
+Tipo: Numérico continuo (dólares USD)
+Rango: $1,121.87 a $63,770.43
+Significado: Costo anual total del seguro médico
+Importancia:
+
+Refleja la prima anual que el asegurado paga
+Determinada por combinación de todos los factores anteriores
+Incluye: cobertura básica, deducibles, copagos, etc.
