@@ -1,0 +1,152 @@
+1. DESCRIPCIÓN  COLUMNAS— BASE DE DATOS COVID (Covid.csv)
+
+USMER
+
+Indica si el paciente recibió tratamiento en unidades médicas de primer, segundo o tercer nivel.
+
+MEDICAL_UNIT
+
+Tipo de unidad médica donde atendieron al paciente: hospital general, clínica, centro de salud, etc.
+
+SEX
+
+Sexo del paciente (1 = mujer, 2 = hombre).
+
+PATIENT_TYPE
+
+Define si el paciente fue hospitalizado o ambulatorio (1 = ambulatorio, 2 = hospitalizado).
+
+DATE_DIED
+
+Fecha de fallecimiento.
+Si aparece "9999-99-99" o “97” significa que no murió.
+
+INTUBED
+
+Si el paciente fue intubado (1 = sí, 2 = no, 97 = no aplica).
+
+PNEUMONIA
+
+Si el paciente desarrolló neumonía (1 = sí, 2 = no).
+
+AGE
+
+Edad del paciente en años.
+
+PREGNANT
+
+Si la paciente estaba embarazada (1 = sí, 2 = no, 97 = no aplica / hombres).
+
+DIABETES
+
+Presencia de diabetes (1 = sí, 2 = no).
+
+COPD
+
+Si presenta EPOC (Enfermedad Pulmonar Obstructiva Crónica).
+
+ASTHMA
+
+Presencia de asma (1 = sí, 2 = no).
+
+INMSUPR
+
+Indica si el paciente tiene el sistema inmune comprometido (inmunosupresión).
+
+HIPERTENSION
+
+Si el paciente tiene hipertensión arterial.
+
+OTHER_DISEASE
+
+Si el paciente presenta otras enfermedades adicionales.
+
+CARDIOVASCULAR
+
+Si el paciente tiene enfermedades cardiovasculares.
+
+OBESITY
+
+Si tiene obesidad (1 = sí, 2 = no).
+
+RENAL_CHRONIC
+
+Si presenta enfermedad renal crónica.
+
+TOBACCO
+
+Consumo de tabaco (1 = sí, 2 = no).
+
+CLASIFFICATION_FINAL
+
+Clasificación final del caso COVID:
+1, 2, 3 → Confirmado
+4, 5, 6 → No confirmado
+
+ICU
+
+Si el paciente ingresó a UCI (Unidad de Cuidados Intensivos).
+
+2.  DESCRICION  COLUMNAS— BASE DE DATOS DE RIESGOS CARDIOVASCULARES (Riesgos_corazon.csv)
+
+Base de datos: factores de riesgo para enfermedades cardíacas.
+
+id
+
+Identificador único de cada paciente en el dataset.
+
+age
+
+Edad del paciente en días (así viene en el dataset original de Kaggle).
+
+gender
+
+Sexo (1 = mujer, 2 = hombre).
+
+height
+
+Altura en centímetros.
+
+weight
+
+Peso en kilogramos.
+
+ap_hi
+
+Presión arterial sistólica (el número alto).
+
+ap_lo
+
+Presión arterial diastólica (el número bajo).
+
+cholesterol
+
+Nivel de colesterol:
+1 = normal
+2 = por encima de lo normal
+3 = muy por encima de lo normal
+
+gluc
+
+Nivel de glucosa en sangre:
+1 = normal
+2 = alto
+3 = muy alto
+
+smoke
+
+Indica si el paciente fuma (1 = sí, 0 = no).
+
+alco
+
+Consumo de alcohol (1 = sí, 0 = no).
+
+active
+
+Si la persona realiza actividad física (1 = sí, 0 = no).
+
+cardio
+
+Diagnóstico final:
+1 = tiene enfermedad cardiovascular
+0 = no la tiene
